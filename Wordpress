@@ -1,0 +1,36 @@
+1. Download WordPress
+WordPress is a popular tool used to quickly create a website or blog with an easy to use editor for creating new content.
+
+
+In your terminal, make sure you are still in the directory /var/www/html/
+
+cd /var/www/html/
+
+Delete all the files in the folder.
+
+sudo rm *
+
+Type this command to download WordPress
+
+sudo wget https://wordpress.org/latest.tar.gz
+
+Extract the WordPress software:
+
+sudo tar xzf latest.tar.gz
+
+Move the contents of the extracted wordpress directory to the current directory.
+Tip: Make sure you type the whole command including the dot.
+
+sudo mv wordpress/* .
+
+Tidy up by removing the download, and the now empty wordpress directory.
+
+sudo rm -rf wordpress latest.tar.gz
+
+Change the ownership of all these files to the Apache user:
+Tip: Make sure you type the whole command including the dot.
+
+sudo chown -R www-data: .
+
+
+
