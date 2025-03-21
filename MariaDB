@@ -1,0 +1,40 @@
+1. Install MariaDB
+MariaDB is a popular database engine. Like PHP, it’s widely used on web servers, which is why projects like WordPress use it, and why those projects are so popular.
+
+
+Type this command to install the MariaDB Server and PHP-MySQL packages:
+
+sudo apt install mariadb-server php-mysql -y
+
+After that, restart Apache:
+
+sudo service apache2 restart
+
+
+
+2. Set up
+
+Run the MySQL secure installation command in the terminal window.
+
+sudo mysql_secure_installation
+
+Go through the setup wizard using the following answers:
+
+Enter current password for root (enter for none): — press Enter.
+
+Switch to unix_socket authentication [Y/n] - Type in N and press Enter
+
+Change the root password? - Type in Y and press Enter
+
+New password: - Type in a password and press Enter, then repeat a second time. Important: remember this root password, as you will need it later to set up WordPress.
+
+Remove anonymous users - Type in Y
+
+Disallow root login remotely - Type in Y
+
+Remove test database and access to it - Type in Y
+
+Reload privilege tables now - Type in Y
+
+
+
