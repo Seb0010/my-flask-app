@@ -1,0 +1,22 @@
+1. Install PHP
+PHP is a preprocessor: it’s code that runs when the server receives a request for a web page via a web browser. It works out what needs to be shown on the page, and then sends that page to the browser.
+
+
+Type the following command in the terminal to install PHP:
+
+" sudo apt install php -y "
+
+
+2. Test PHP
+
+Type this command to delete the index.html file from earlier:
+
+sudo rm index.html
+
+Create a new file called index.php:
+
+sudo thonny index.php
+
+In the Thonny code editor, type this PHP code into the file and save it.
+
+<?php echo "hello world"; ?>
