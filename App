@@ -1,0 +1,39 @@
+Create the app
+
+Open a terminal and use the mkdir command to create a new directory inside your documents folder called webapp.
+
+mkdir ~/Documents/webapp
+
+Use the ‘change directory’ command cd to open the new directory.
+
+cd ~/Documents/webapp
+
+From the Programming menu, open Thonny.
+
+
+Add this Python code into the blank file.
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Hello world'
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
+
+Save the new file with the name app.py inside the webapp folder you just created.
+
+
+Go back to your terminal window and run the script you just wrote:
+
+python3 app.py
+
+From your Raspberry Pi’s menu, open Internet > Chromium web browser
+
+
+In the address bar, type localhost:5000 and press Enter. You should see the welcome page.
+
+
