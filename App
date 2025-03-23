@@ -37,3 +37,136 @@ From your Raspberry Pi’s menu, open Internet > Chromium web browser
 In the address bar, type localhost:5000 and press Enter. You should see the welcome page.
 
 
+
+Lets add a new page to our app
+
+
+To add a new page to your web app, you create a new route.
+
+Add the code for a new route to app.py and save the file.
+
+@app.route('/')
+def index():
+    return 'Hello world'
+
+@app.route('/cakes')
+def cakes():
+    return 'Yummy cakes!'
+
+In the Chromium web browser, type localhost:5000/cakes in the address bar.
+You should see a web page with the text “Yummy cakes!” on it.
+
+
+Lets create an HTML template
+
+
+You can use a template to give your page a style. The template will use HyperText Markup Language (HTML).
+
+Go to your terminal and press Ctrl + C to stop your flask server.
+
+Create a templates directory in your webapp directory:
+
+mkdir templates
+
+Go back to Thonny and create a new file. Save this file as index.html inside your templates folder.
+
+Add this code to index.html and save your changes.
+
+<html>
+<body>
+<h1>My website</h1>
+</body>
+</html>
+
+Return to your app.py file and change the first line of code:
+
+from flask import Flask, render_template
+
+Change the index() route to use your index.html HTML template:
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+Save app.py then go back to the terminal and run it to restart your server:
+
+python3 app.py
+
+Go to localhost:5000/ page in Chromium to see your new HTML template displayed.
+
+
+
+Now lets add a CSS file for our app
+
+
+Cascading Style Sheets (CSS) are rules to tell a browser how to display HTML content.
+
+Open a new terminal window, so that you can leave the Flask web server running in the other one.
+
+Make sure you are in the webapp directory using this command:
+
+cd ~/Documents/webapp
+
+Create a new directory called static.
+
+mkdir static
+
+Go back to Thonny and create a new file. Save this file as style.css inside your static folder.
+
+Add the following CSS rules to style.css then save the file. This is your stylesheet.
+
+body {
+    background: beige;
+    color: blue;
+}
+
+Now modify your index.html HTML template to include the CSS stylesheet:
+
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<h1>My website</h1>
+</body>
+</html>
+
+Save the changes to index.html then go back to Chromium and refresh the browser. You should see a color version of your web app.
+
+
+
+Add some dynamic content
+
+
+Dynamic content
+Websites like Facebook, YouTube and BBC News have dynamic content: these websites show different content within the same template.
+
+Now you will create a new route on your website so that the page will show you a personalised greeting.
+
+Open app.py and add a new route to your application:
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/hello/<name>')
+def hello(name):
+    return render_template('page.html', name=name)
+
+Create a new HTML template in the templates folder called page.html, and add the following HTML code to it:
+
+<html>
+<body>
+<h1>Hello {{ name }}!</h1>
+</body>
+</html>
+
+Save both files, then visit localhost:5000/hello/Seb in the Chromium browser.
+Try replacing Seb in the address bar with a different name!
+
+Open your index.html template and add a link to the hello page under the heading.
+
+<h1>My website</h1>
+<a href="/hello/Seb">Hi Seb</a>
+
+Save the changes to index.html, and then open localhost:5000 to see the updated version.
