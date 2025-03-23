@@ -170,3 +170,22 @@ Open your index.html template and add a link to the hello page under the heading
 <a href="/hello/Seb">Hi Seb</a>
 
 Save the changes to index.html, and then open localhost:5000 to see the updated version.
+
+
+
+
+
+
+While Flask does include its own web server, using this in actual production isn’t recommended. It’s mainly included to help with developing your web app. 
+Luckily, setting up Apache to server your Flask web app on your Raspberry Pi isn’t super complicated.
+
+This section will quickly walk you through the steps for running our previous example script through the Apache web server.
+
+1. Before we can proceed any further, you must install the Apache web server. Feel free to guide yourself using the "Apache" file in the repository.
+
+2. After installing Apache, your next step is to install the mod wsgi library for Apache and Python 3. This is the core library that will allow us to run our Flask web app from our Raspberry Pi.
+You can install this required by module by running the command below within the terminal.
+
+        sudo apt install libapache2-mod-wsgi-py3
+
+
